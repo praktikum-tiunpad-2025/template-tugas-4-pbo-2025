@@ -1,0 +1,133 @@
+name: Autograding Tests
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    # ======= Tugas 1 =======
+    - name: tugas1 test1
+      id: tugas1-test1
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: tugas1 test1
+        setup-command: g++ tugas_1.cpp -o tugas1
+        command: "./tugas1"
+        input: 100 C
+        expected-output: |-
+          Fahrenheit: 212
+          Kelvin: 373.15
+        comparison-method: regex
+        timeout: 10
+        max-score: 10
+
+    - name: tugas1 test2
+      id: tugas1-test2
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: tugas1 test2
+        setup-command: g++ tugas_1.cpp -o tugas1
+        command: "./tugas1"
+        input: 32 F
+        expected-output: |-
+          Celsius: 0
+          Kelvin: 273.15
+        comparison-method: regex
+        timeout: 10
+        max-score: 10
+
+    - name: tugas1 test3
+      id: tugas1-test3
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: tugas1 test3
+        setup-command: g++ tugas_1.cpp -o tugas1
+        command: "./tugas1"
+        input: 273.15 K
+        expected-output: |-
+          Celsius: 0
+          Fahrenheit: 32
+        comparison-method: regex
+        timeout: 10
+        max-score: 10
+
+    # ======= Tugas 2 =======
+    - name: tugas2 test1
+      id: tugas2-test1
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: tugas2 test1
+        setup-command: g++ tugas_2.cpp -o tugas2
+        command: "./tugas2"
+        input: 4 5
+        expected-output: '17'
+        comparison-method: exact
+        timeout: 10
+        max-score: 10
+
+    - name: tugas2 test2
+      id: tugas2-test2
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: tugas2 test2
+        setup-command: g++ tugas_2.cpp -o tugas2
+        command: "./tugas2"
+        input: -3 6
+        expected-output: '-36'
+        comparison-method: exact
+        timeout: 10
+        max-score: 10
+
+    # ======= Tugas 3 =======
+    - name: tugas3 test1
+      id: tugas3-test1
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: tugas3 test1
+        setup-command: g++ tugas_3.cpp -o tugas3
+        command: "./tugas3"
+        input: 342 211
+        expected-output: '553'
+        comparison-method: exact
+        timeout: 10
+        max-score: 10
+
+    - name: tugas3 test2
+      id: tugas3-test2
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: tugas3 test2
+        setup-command: g++ tugas_3.cpp -o tugas3
+        command: "./tugas3"
+        input: 69 91
+        expected-output: '511'
+        comparison-method: exact
+        timeout: 10
+        max-score: 10
+
+    # ======= Autograding Reporter =======
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        TUGAS1-TEST1_RESULTS: "${{steps.tugas1-test1.outputs.result}}"
+        TUGAS1-TEST2_RESULTS: "${{steps.tugas1-test2.outputs.result}}"
+        TUGAS1-TEST3_RESULTS: "${{steps.tugas1-test3.outputs.result}}"
+        TUGAS2-TEST1_RESULTS: "${{steps.tugas2-test1.outputs.result}}"
+        TUGAS2-TEST2_RESULTS: "${{steps.tugas2-test2.outputs.result}}"
+        TUGAS3-TEST1_RESULTS: "${{steps.tugas3-test1.outputs.result}}"
+        TUGAS3-TEST2_RESULTS: "${{steps.tugas3-test2.outputs.result}}"
+      with:
+        runners: tugas1-test1,tugas1-test2,tugas1-test3,tugas2-test1,tugas2-test2,tugas3-test1,tugas3-test2
