@@ -196,39 +196,39 @@ Hasil konversi suhu ke dua satuan lainnya, masing-masing di baris baru.
   ```
 
   
-## Desimal ke Oktal
+## weirdMultiply
 > file: `tugas_2.cpp`
 
 ### Deskripsi
-Diberikan sebuah bilangan bulat positif $n$, konversi $n$ ke bilangan oktal menggunakan sebuah fungsi.
+Buatlah fungsi `weirdMultiply(int a, int b)` yang mengembalikan hasil perkalian dua bilangan bulat dengan aturan:
+- Jika salah satu bilangan negatif → hasil dikali 2
+- Jika keduanya positif → hasil dikurangi 3
+
+Program membaca dua bilangan bulat, lalu mencetak hasil `weirdMultiply`.
 
 ### Format Input
-Sebuah bilangan bulat positif $n$.
+Dua bilangan bulat $a$ dan $b$.
 
 ### Format Output
-Hasil konversi $n$ ke bilangan oktal
+Sebuah bilangan bulat hasil weirdMultiply.
 
 ### Contoh
-
 * Sample Input 1
-  ```
-  118
-  ```
-
+```
+4 5
+```
 * Sample Output 1
-  ```
-  166
-  ```
-
+```
+17
+```
+* Sample Input 2
+```
+-3 6
+```
 * Sample Output 2
-  ```
-  193
-  ```
-
-* Sample Output 2
-  ```
-  301
-  ```
+```
+-36
+```
 
 
 ## Balikin Angkanya!
