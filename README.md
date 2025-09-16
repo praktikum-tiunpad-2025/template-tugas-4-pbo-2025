@@ -150,49 +150,51 @@ Nilai true (1) jika n adalah pangkat empat. Jika tidak, kembalikan nilai false (
   1
   ```
 
-## maxMin!
-> file: `tugas_1.cpp`
+## convertTemp!
+> file: `tugas_4.cpp`
 
 ### Deskripsi
-Diberikan tiga bilangan real $a$, $b$, dan $c$. Tugas kamu adalah membuat fungsi untuk mencetak angka terbesar dan terkecil dari tiga masukkan tersebut.
+Buatlah program dengan tiga **fungsi**:  
+- `toCelsius(double f)` untuk mengubah Fahrenheit ke Celsius  
+- `toFahrenheit(double c)` untuk mengubah Celsius ke Fahrenheit  
+- `toKelvin(double c)` untuk mengubah Celsius ke Kelvin  
+
+Program membaca sebuah bilangan real dan sebuah karakter yang menunjukkan jenis input suhu (`C` atau `F`). Lalu, program mencetak hasil konversi ke dua satuan lainnya.  
 
 ### Format Input
-tiga bilangan real $a$, $b$, dan $c$.
+Sebuah bilangan real (nilai suhu) dan sebuah karakter (`C` atau `F`).  
 
 ### Format Output
-bilangan terbesar dan terkecil didahului dengan keterangan apakah angka tersebut max atau min.
+Hasil konversi suhu ke dua satuan lainnya, masing-masing di baris baru.  
 
 ### Contoh
-  
+
 * Sample Input 1
 
-  
   ```
-  1 3 0
+  100 C
   ```
 
 * Sample Output 1
 
-  
   ```
-  max: 3
-  min: 0
+  Fahrenheit: 212
+  Kelvin: 373.15
   ```
-    
+
 * Sample Input 2
 
-  
   ```
-  3 -2.3 1.1
+  32 F
   ```
 
 * Sample Output 2
 
-  
   ```
-  max: 3
-  min: -2.3
+  Celsius: 0
+  Kelvin: 273.15
   ```
+
   
 ## Desimal ke Oktal
 > file: `tugas_2.cpp`
