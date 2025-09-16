@@ -150,8 +150,8 @@ Nilai true (1) jika n adalah pangkat empat. Jika tidak, kembalikan nilai false (
   1
   ```
 
-## convertTemp!
-> file: `tugas_4.cpp`
+## convertTemperature
+> file: `tugas_1.cpp`
 
 ### Deskripsi
 Buatlah program dengan tiga **fungsi**:  
